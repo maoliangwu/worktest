@@ -22,22 +22,7 @@ int main(int argc, char *argv[])
 {
     QCoreApplication app(argc, argv);
 
-    // [1]  Writing excel file(*.xlsx)
-    QXlsx::Document xlsxW;
-    xlsxW.write("A1", "Hello Qt!"); // write "Hello Qt!" to cell(A,1). it's shared string.
-    if ( xlsxW.saveAs("Test.xlsx") ) // save the document as 'Test.xlsx'
-    {
-        qDebug() << "[debug] success to write xlsx file";
-    }
-    else
-    {
-        qDebug() << "[debug][error] failed to write xlsx file";
-    }
-
-    qDebug() << "[debug] current directory is " << QDir::currentPath();
-
-    // [2] Reading excel file(*.xlsx)
-    Document xlsxR("Test.xlsx");
+    Document xlsxR("Test.xlsx");//Test.xlsx is OK
     if ( xlsxR.load() ) // load excel file
     {
         qDebug() << "[debug] success to load xlsx file.";
